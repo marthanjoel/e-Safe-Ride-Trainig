@@ -1,0 +1,42 @@
+#### e-Safe Ride Training — Day 1####
+
+## Objective
+- Build a simple Arduino circuit with an LED
+- Make the LED blink using Arduino code
+
+## Task 1 — Build Your First Circuit
+**Components Used:**
+- Arduino Uno R3
+- 1 LED
+- 1 220Ω resistor
+
+**Circuit Connections:**
+- LED long leg (anode) → Pin 13
+- LED short leg (cathode) → 220Ω resistor → GND
+
+**Diagram
+  https://www.tinkercad.com/things/h66ittqEX5t-neat-jarv-trug
+Pin 13 → LED → Resistor → GND
+
+scss
+Copy code
+
+## Task 2 — Make the LED Blink
+**Arduino Code:**
+```cpp
+void setup() {
+  pinMode(13, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(13, HIGH); // LED ON
+  delay(1000);
+  digitalWrite(13, LOW);  // LED OFF
+  delay(1000);
+}
+Notes:
+
+LED blinks on/off every 1 second
+
+Change delay() to make it blink faster/slower
+
