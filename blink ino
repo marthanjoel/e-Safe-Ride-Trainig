@@ -1,0 +1,22 @@
+
+scss
+Copy code
+
+## Task 2 — Make the LED Blink
+**Arduino Code:**
+```cpp
+void setup() {
+  pinMode(13, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(13, HIGH); // LED ON
+  delay(1000);
+  digitalWrite(13, LOW);  // LED OFF
+  delay(1000);
+}
+Notes:
+
+LED blinks on/off every 1 second
+
+Change delay() to make it blink faster/slower
