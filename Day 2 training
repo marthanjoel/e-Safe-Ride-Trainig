@@ -20,3 +20,23 @@ Behavior:
 LED lights up only when the button is pressed.
 Button uses the internal INPUT_PULLUP feature for easy wiring.
 
+2. ##Traffic Light System##
+Objective: Build a realistic traffic light with Red, Yellow, and Green LEDs.
+
+##Components Used:##
+Arduino Uno
+3 LEDs (Red, Yellow, Green)
+220Ω resistors
+Push button
+Breadboard and wires
+
+Behavior:
+Red → 3 sec
+Red + Yellow → 1 sec
+Green → 3 sec
+
+Sequence repeats automatically until a button press stops it.
+
+#Screen shots#
+
+
