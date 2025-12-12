@@ -1,0 +1,22 @@
+###Day 2 - Inputs and LED Control##
+What I Learned
+How push buttons work and how to read them with Arduino.
+How to control LEDs using Arduino pins.
+How to build a traffic light system that follows real-world traffic rules.
+How to use timing in Arduino (delay() and millis()) to control LED sequences.
+
+Projects
+1. Button + LED Test
+Objective: Make an LED turn ON only when a button is pressed.
+
+##Components Used:
+Arduino Uno
+Push button
+LED
+220Ω resistor
+Breadboard and wires
+
+Behavior:
+LED lights up only when the button is pressed.
+Button uses the internal INPUT_PULLUP feature for easy wiring.
+
