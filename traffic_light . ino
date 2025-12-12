@@ -1,0 +1,32 @@
+// Pin connections
+const int redLED = 10;
+const int yellowLED = 9;
+const int greenLED = 8;
+
+void setup() {
+  pinMode(redLED, OUTPUT);
+  pinMode(yellowLED, OUTPUT);
+  pinMode(greenLED, OUTPUT);
+}
+
+void loop() {
+  // RED for 3 seconds
+  digitalWrite(redLED, HIGH);
+  digitalWrite(yellowLED, LOW);
+  digitalWrite(greenLED, LOW);
+  delay(3000);
+
+  // YELLOW for 1 second
+  digitalWrite(redLED, LOW);
+  digitalWrite(yellowLED, HIGH);
+  digitalWrite(greenLED, LOW);
+  delay(1000);
+
+  // GREEN for 3 seconds
+  digitalWrite(redLED, LOW);
+  digitalWrite(yellowLED, LOW);
+  digitalWrite(greenLED, HIGH);
+  delay(3000);
+
+  // Then loop again
+}
