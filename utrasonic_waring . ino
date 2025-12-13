@@ -1,0 +1,54 @@
+// Pin assignments
+const int trigPin = 7;     // Ultrasonic TRIG
+const int echoPin = 6;     // Ultrasonic ECHO
+const int ledPin  = 9;     // LED
+const int buzzerPin = 8;   // Buzzer
+
+long duration;
+int distance;
+
+void setup() {
+  // Initialize pins
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(ledPin, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+
+  // Start Serial Monitor
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Trigger ultrasonic pulse
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  // Read echo time
+  duration = pulseIn(echoPin, HIGH);
+
+  // Convert to distance (cm)
+  distance = duration * 0.034 / 2;
+
+  // Print distance
+  Serial.print("Distance: ");
+  Serial.print(distance);
+  Serial.println(" cm");
+
+  // Behavior rules
+  if (distance < 10) {
+    digitalWrite(ledPin, HIGH);   // LED ON
+  } else {
+    digitalWrite(ledPin, LOW);    // LED OFF
+  }
+
+  if (distance < 5) {
+    tone(buzzerPin, 1000);        // Buzzer ON (1000 Hz tone)
+  } else {
+    noTone(buzzerPin);            // Buzzer OFF
+  }
+
+  delay(200); // Small delay for stability
+}
