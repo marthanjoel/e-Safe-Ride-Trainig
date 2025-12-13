@@ -1,43 +1,42 @@
-// Pin assignments
-const int trigPin = 7;     // Ultrasonic TRIG
-const int echoPin = 6;     // Ultrasonic ECHO
-const int ledPin  = 9;     // LED
+// Pin setup
+const int trigPin = 7;     // HC-SR04 Trig
+const int echoPin = 6;     // HC-SR04 Echo
+const int ledPin = 9;      // LED
 const int buzzerPin = 8;   // Buzzer
 
 long duration;
 int distance;
 
 void setup() {
-  // Initialize pins
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
   pinMode(ledPin, OUTPUT);
   pinMode(buzzerPin, OUTPUT);
-
-  // Start Serial Monitor
-  Serial.begin(9600);
+  Serial.begin(9600); // Start Serial Monitor
 }
 
 void loop() {
-  // Trigger ultrasonic pulse
+  // --- Ultrasonic sensor pulse ---
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
   digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
 
-  // Read echo time
-  duration = pulseIn(echoPin, HIGH);
+  // --- Read echo ---
+  duration = pulseIn(echoPin, HIGH, 30000); // 30 ms timeout
+  if (duration == 0) {
+    distance = 999; // No echo detected
+  } else {
+    distance = duration * 0.034 / 2; // Convert to cm
+  }
 
-  // Convert to distance (cm)
-  distance = duration * 0.034 / 2;
-
-  // Print distance
+  // --- Print distance every 1 second ---
   Serial.print("Distance: ");
   Serial.print(distance);
   Serial.println(" cm");
 
-  // Behavior rules
+  // --- Behavior rules ---
   if (distance < 10) {
     digitalWrite(ledPin, HIGH);   // LED ON
   } else {
@@ -45,10 +44,12 @@ void loop() {
   }
 
   if (distance < 5) {
-    tone(buzzerPin, 1000);        // Buzzer ON (1000 Hz tone)
+    digitalWrite(buzzerPin, HIGH); // Buzzer ON (active buzzer)
+    // For passive buzzer: tone(buzzerPin, 2000);
   } else {
-    noTone(buzzerPin);            // Buzzer OFF
+    digitalWrite(buzzerPin, LOW);  // Buzzer OFF
+    // For passive buzzer: noTone(buzzerPin);
   }
 
-  delay(200); // Small delay for stability
+  delay(1000); // Wait 1 second before next reading
 }
