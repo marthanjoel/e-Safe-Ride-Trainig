@@ -1,0 +1,25 @@
+# Day 3 - Ultrasonic Sensor System
+
+## Overview
+On Day 3, I explored how ultrasonic distance sensors work and applied them in a simple Arduino project.  
+The goal was to build a warning system that reacts when objects are detected nearby.
+
+## Key Learnings
+- Understood the principle of ultrasonic distance measurement.
+- Wired and configured the HC-SR04 sensor with Arduino.
+- Used `Serial.print()` to display live sensor readings in the Serial Monitor.
+- Implemented logic to trigger warnings when an object is within a set threshold.
+
+## Project Highlights
+- Built a **warning system** that activates when an object is closer than the defined distance.
+- Successfully printed sensor data to the Serial Monitor for debugging and observation.
+- Practiced combining hardware (sensor + LEDs/buzzer) with software logic.
+
+## Repository Contents
+- **ultrasonic_warning.ino** → Arduino sketch for the warning system.  
+- **README.md** → Documentation of Day 3 progress and learnings.  
+- **screenshots/** → Visuals of the circuit and Serial Monitor output.
+
+## Next Steps
+- Add multiple thresholds (e.g., LED ON at <10 cm, buzzer ON at <5 cm).
+- Integrate into larger projects like obstacle detection or smart parking systems.
