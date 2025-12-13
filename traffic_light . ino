@@ -1,32 +1,47 @@
-// Pin connections
 const int redLED = 10;
 const int yellowLED = 9;
 const int greenLED = 8;
+const int buttonPin = 2;
 
 void setup() {
   pinMode(redLED, OUTPUT);
   pinMode(yellowLED, OUTPUT);
   pinMode(greenLED, OUTPUT);
+  pinMode(buttonPin, INPUT_PULLUP); // Button wired to GND
 }
 
 void loop() {
-  // RED for 3 seconds
-  digitalWrite(redLED, HIGH);
-  digitalWrite(yellowLED, LOW);
-  digitalWrite(greenLED, LOW);
-  delay(3000);
+  if (digitalRead(buttonPin) == LOW) {
+    // Button pressed: run traffic light sequence
 
-  // YELLOW for 1 second
-  digitalWrite(redLED, LOW);
-  digitalWrite(yellowLED, HIGH);
-  digitalWrite(greenLED, LOW);
-  delay(1000);
+    // RED for 3s
+    digitalWrite(redLED, HIGH);
+    digitalWrite(yellowLED, LOW);
+    digitalWrite(greenLED, LOW);
+    delay(3000);
 
-  // GREEN for 3 seconds
-  digitalWrite(redLED, LOW);
-  digitalWrite(yellowLED, LOW);
-  digitalWrite(greenLED, HIGH);
-  delay(3000);
+    // YELLOW for 1s
+    digitalWrite(redLED, LOW);
+    digitalWrite(yellowLED, HIGH);
+    digitalWrite(greenLED, LOW);
+    delay(1000);
 
-  // Then loop again
+    // GREEN for 3s
+    digitalWrite(redLED, LOW);
+    digitalWrite(yellowLED, LOW);
+    digitalWrite(greenLED, HIGH);
+    delay(3000);
+
+    // Optional pause before repeating
+    digitalWrite(redLED, LOW);
+    digitalWrite(yellowLED, LOW);
+    digitalWrite(greenLED, LOW);
+    delay(500);
+
+  } else {
+    // Button not pressed: turn LEDs OFF
+    digitalWrite(redLED, LOW);
+    digitalWrite(yellowLED, LOW);
+    digitalWrite(greenLED, LOW);
+  }
 }
