@@ -1,0 +1,32 @@
+Day 5 - Telematics System Simulation
+📖 Overview
+On Day 5, I combined ultrasonic and temperature sensors to simulate a basic vehicle telematics system. The goal was to monitor distance and temperature simultaneously, print values to the serial monitor, and trigger alerts when danger thresholds were reached.
+
+🎯 Learning Outcomes
+Learned how multiple sensors can be integrated into one system.
+
+Practiced printing combined sensor data to the serial monitor.
+
+Built a simple danger alert system for obstacles and overheating.
+
+🧪 Assignments
+Task 1 — Combine Ultrasonic + Temperature Sensors
+Print both distance (cm) and temperature (°C) every 2 seconds.
+
+Output format:
+
+Code
+Distance: __ cm | Temperature: __ °C | Warnings: __
+Task 2 — Danger Alerts
+If distance < 20 cm → Print "Obstacle Close!"
+
+If temperature > 45 °C → Print "Overheating!"
+
+⚙️ Behavior Summary
+Normal → Prints values only.
+
+Obstacle detected → Warning message.
+
+Overheating detected → Warning message.
+
+Both conditions → Multiple warnings printed together.
